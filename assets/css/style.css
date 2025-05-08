@@ -1,0 +1,134 @@
+  body, html {
+      height: 100%;
+    }
+    .layout {
+      display: grid;
+      grid-template-areas:
+        "header"
+        "filters"
+        "main"
+        "footer";
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto 1fr auto;
+      min-height: 100vh;
+    }
+
+    header {
+      grid-area: header;
+      background: #0d6efd;
+      color: white;
+      padding: 1rem;
+    }
+
+    .filters {
+      grid-area: filters;
+      background: #f8f9fa;
+      padding: 1rem;
+      border-bottom: 1px solid #dee2e6;
+     /* display: flex;*/
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-around;
+    }
+
+    main {
+      grid-area: main;
+      padding: 1.5rem;
+      background: #ffffff;
+    }
+
+    footer {
+      grid-area: footer;
+      background: #343a40;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    /* Grilla de productos */
+    .productos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* Tarjeta de producto */
+    .tarjeta-producto {
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: transform 0.3s;
+      background: #f8f9fa;
+    }
+
+    .tarjeta-producto:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .tarjeta-producto img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .tarjeta-producto-body {
+      flex-grow: 1;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+  
+.card:hover {
+  transform: scale(1.03);
+  transition: transform 0.3s ease;
+}
+
+
+
+    /* Responsive para pantallas mayores a 576px */
+    @media (min-width: 576px) {
+      .layout {
+        grid-template-areas:
+          "header header"
+          "filters main"
+          "footer footer";
+        grid-template-columns: 250px 1fr;
+      }
+
+      .filters {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem 1rem;
+      }
+    }
+
+    /* Modo escritorio: menú horizontal */
+  .navbar-nav {
+    flex-direction: row;
+  }
+
+  /* Versión mobile: menú vertical, ocultar elementos extras */
+  @media (max-width: 768px) {
+    .navbar-nav {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .nav-item-extra {
+      display: none; /* Ocultamos subsección derecha */
+    }
+
+    .nav-item-alternativo {
+      display: block; /* Mostramos solo ícono */
+    }
+  }
+
+  /* Por defecto, alternativa oculta */
+  .nav-item-alternativo {
+    display: none;
+  }
